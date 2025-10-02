@@ -4,7 +4,14 @@
     </head>
     {% block content %}
         <body>
-            <h3>Carro 1: {{ cars.model }}</h3>
+            {% for car in cars %}
+                <h3>
+                    {{ car.brand }} - {{ car.model }} -  {{ car.factory_year }} 
+                    {% if car.value%}
+                        : {{car.value | floatformat:2}}
+                    {% endif %}
+                </h3>
+            {% endfor %}
         </body>
     {% endblock %}
 </html>
